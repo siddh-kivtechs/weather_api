@@ -4,6 +4,9 @@ const axios = require('axios/dist/node/axios.cjs'); // node
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+const cors = require('cors');
+// Enable CORS for all routes
+app.use(cors({origin: '*'}));
 
 async function get_data(url) {
   // use axios or got to fetch the data and return the text
