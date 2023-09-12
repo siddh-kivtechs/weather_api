@@ -22,7 +22,7 @@ app.get("/", async (req, res) => {
   const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}&units=metric`;
   // await the get_data call and send the result
   let data='weather({'+await get_data(url)+'});';
-  res.send();
+  res.send(data);
   // res.send(url);
 });
 
