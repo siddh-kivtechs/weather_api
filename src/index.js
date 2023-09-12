@@ -15,10 +15,10 @@ app.get("/", async (req, res) => {
     let lat = req.headers['x-vercel-ip-latitude'];
   let lon = req.headers['x-vercel-ip-longitude'];
     const key= process.env.weather_key;
-  const url = `https://pro.openweathermap.org/data/2.5/forecast/climate?lat=${lat}&lon=${lon}&appid=${key}&units=metric`;
+  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}&units=metric`;
   // await the get_data call and send the result
-  // res.send(await get_data(url));
-  res.send(url);
+  res.send(await get_data(url));
+  // res.send(url);
 });
 
 app.listen(PORT, () => {
