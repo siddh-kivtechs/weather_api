@@ -1,14 +1,14 @@
 import express from 'express';
-import fetch from 'node-fetch';
+// import axios or got instead of node-fetch
+import axios from 'axios';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 async function get_data(url) {
-  // await the fetch call and destructure the text property from the response
-  const { text } = await fetch(url);
-  // await the text() call and return the result
-  return await text();
+  // use axios or got to fetch the data and return the text
+  const response = await axios.get(url);
+  return response.data;
 }
 
 app.get("/", async (req, res) => {
