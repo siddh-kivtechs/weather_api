@@ -14,7 +14,7 @@ fetch(url)
   return text;
 }
 app.get("/", (req, res) => {
-  const url = "https://www.google.com";
+  const url = "https://siddh-kivtechs.github.io/menu_kivtechs_json/part_10.json";
   res.send(get_data(url));
 });
 
