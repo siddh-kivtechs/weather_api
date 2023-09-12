@@ -17,7 +17,8 @@ app.get("/", async (req, res) => {
     const key= process.env.weather_key;
   const url = `https://pro.openweathermap.org/data/2.5/forecast/climate?lat=${lat}&lon=${lon}&appid=${key}&units=metric`;
   // await the get_data call and send the result
-  res.send(await get_data(url));
+  // res.send(await get_data(url));
+  res.send(url);
 });
 
 app.listen(PORT, () => {
