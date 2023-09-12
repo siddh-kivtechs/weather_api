@@ -1,23 +1,21 @@
-// In src/index.js
 import express from 'express';
 import fetch from 'node-fetch';
-import { get_data } from 'get_data';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// function get_data(url)
-// {
-  
-// fetch(url)
-//   .then(response => response.text())
-//   return text;
-// }
-app.get("/", (req, res) => {
-  const url = "https://siddh-kivtechs.github.io/menu_kivtechs_json/part_10.json";
-  res.send(get_data(url));
-});
+async function get_data(url) {
+  // await the fetch call and destructure the text property from the response
+  const { text } = await fetch(url);
+  // await the text() call and return the result
+  return await text();
+}
 
+app.get("/", async (req, res) => {
+  const url = "https://siddh-kivtechs.github.io/menu_kivtechs_json/part_10.json";
+  // await the get_data call and send the result
+  res.send(await get_data(url));
+});
 
 app.listen(PORT, () => {
   console.log(`API is listening on port ${PORT}`);
