@@ -21,8 +21,15 @@ app.get("/", async (req, res) => {
     const key= process.env.weather_key;
   const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}&units=metric`;
   // await the get_data call and send the result
-  let data='weather({'+await get_data(url)+'});';
-  res.send(data);
+ //Get the callback name from the URL query parameter
+let callback = new URL(url).searchParams.get('callback');
+
+//Get the data from the URL and stringify it with the callback name
+let data = callback + '(' + JSON.stringify(await get_data(url)) + ');';
+
+//Send the data as JSONP
+res.setHeader('Content-Type', 'application/javascript');
+res.end(data);
   // res.send(url);
 });
 
