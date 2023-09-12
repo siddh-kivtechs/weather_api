@@ -19,5 +19,6 @@
     "cors":"*",
     "ejs":"*",
    "node-fetch":"*"
-  }
+  },
+   "type": "module"
 }
