@@ -6,7 +6,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const cors = require('cors');
 // Enable CORS for all routes
-app.use(cors({origin: '*'}));
+// Enable CORS for specific origin
+app.use(cors());
 
 async function get_data(url) {
   // use axios or got to fetch the data and return the text
