@@ -14,7 +14,8 @@ fetch(url)
   return text;
 }
 app.get("/", (req, res) => {
-  res.send("<h2>It's Working!</h2>");
+  const url = "https://www.google.com";
+  res.send(get_data(url));
 });
 
 
