@@ -1,6 +1,6 @@
 import express from 'express';
 // import axios or got instead of node-fetch
-import axios from 'axios';
+const axios = require('axios/dist/node/axios.cjs'); // node
 
 const app = express();
 const PORT = process.env.PORT || 3000;
