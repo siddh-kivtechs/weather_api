@@ -1,4 +1,3 @@
-// In src/index.js
 const express = require("express");
 const fetch = require("node-fetch");
 
@@ -10,7 +9,6 @@ function get_data(url)
   
 fetch(url)
   .then(response => response.text())
-  .then(text => console.log(text));
   return text;
 }
 app.get("/", (req, res) => {
