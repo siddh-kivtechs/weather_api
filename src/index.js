@@ -1,4 +1,4 @@
-import express from 'express';
+const express = require('express');
 // import axios or got instead of node-fetch
 const axios = require('axios/dist/node/axios.cjs'); // node
 
